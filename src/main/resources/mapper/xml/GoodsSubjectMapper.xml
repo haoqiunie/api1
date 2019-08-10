@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mht.mapper.GoodsSubjectMapper">
+
+    <select id="getSu" resultType="com.mht.entity.GoodsSubject">
+
+      SELECT
+            min(at_least_num) as at_least_num ,seller_id
+        FROM
+            goods_subject gs
+
+        WHERE
+            gs.at_least_num IS NOT NULL
+        GROUP BY
+            gs.seller_id;
+
+    </select>
+
+</mapper>
